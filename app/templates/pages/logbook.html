@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %} {% block title %}
+<title>{{ title }}</title>
+{% endblock %} {% block content %}
+<section id="logbook" class="logbook">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="card text-center">
+          <h1>Limbah Proses</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio qui quis totam, nemo at aliquam magni corporis ratione quisquam pariatur sunt illo, ut modi expedita commodi tenetur dolor voluptatum natus!</p>
+          <div>
+            <a href="" class="btn">Debit</a>
+            <a href="" class="btn">ph</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card text-center">
+          <h1>Limbah Domestik</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio qui quis totam, nemo at aliquam magni corporis ratione quisquam pariatur sunt illo, ut modi expedita commodi tenetur dolor voluptatum natus!</p>
+          <div>
+            <a href="{{ url_for('debit_domestik' ) }}" class="btn">Debit</a>
+            <a href="" class="btn">ph</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

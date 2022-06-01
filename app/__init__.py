@@ -10,5 +10,5 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-from app.models import user, lb3
+from app.models import user, lb3, debit, ph
 from app import routes

@@ -16,7 +16,7 @@ a {
 }
 
 section {
-  background: var(--color-bg);
+  background-image: url("../img/cool-background.png");
   padding: 90px 0px 10px 0px;
   background-size: cover;
 }
@@ -24,7 +24,7 @@ section {
 /* Sidebar */
 #sidebar {
   position: fixed;
-  top: 30%;
+  top: 20%;
   left: 0px;
   bottom: 0;
   z-index: 9997;
@@ -118,6 +118,7 @@ section {
 .navbar {
   background: var(--color-bg);
   z-index: 997;
+  border-radius: 0px 0px 50px 50px;
 }
 .navbar .navbar-brand {
   font-weight: 900;
@@ -156,7 +157,7 @@ section {
 }
 .lb3 h1 {
   margin-top: 50px;
-  color: #4cd48d;
+  color: var(--color-btn2);
   font-weight: 700;
 }
 .lb3 .card {
@@ -175,5 +176,52 @@ section {
 }
 .lb3 th,
 .lb3 td {
+  vertical-align: middle;
+}
+
+/* Logbook */
+.logbook {
+  height: 100vh;
+  width: 100%;
+}
+.logbook .card {
+  border-radius: 50px;
+  padding: 30px 30px;
+  border-bottom: 10px solid var(--color-btn2);
+  margin-top: 100px;
+}
+.logbook .card h1 {
+  color: var(--color-btn2);
+  font-weight: 700;
+}
+.logbook .card p {
+  color: var(--color-text2);
+}
+.logbook .card .btn {
+  background-color: var(--color-btn);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: 10px 30px;
+}
+.logbook .card .btn:hover {
+  background-color: var(--color-btn-hover);
+}
+
+/* Debit Domestik */
+.debit-domestik {
+  height: 100vh;
+  width: 100%;
+}
+.debit-domestik .card {
+  padding: 50px 50px;
+  border-radius: 50px;
+  border-bottom: 10px solid var(--color-btn2);
+}
+.debit-domestik h1 {
+  color: var(--color-btn2);
+  font-weight: 700;
+}
+.debit-domestik th,
+.debit-domestik td {
   vertical-align: middle;
 }
