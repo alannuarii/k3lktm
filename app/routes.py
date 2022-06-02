@@ -32,3 +32,27 @@ def logbook():
 def debit_domestik():
 
     return render_template('pages/debit-domestik.html', title='Debit Limbah Domestik | K3L KTM', active_logbook='active')
+
+
+@app.route('/logbook/sludge')
+def sludge():
+
+    return render_template('pages/sludge.html', title='Sludge | K3L KTM', active_logbook='active')
+
+
+@app.route('/logbook/oli-bekas')
+def oli_bekas():
+
+    return render_template('pages/oli-bekas.html', title='Oli Bekas | K3L KTM', active_logbook='active')
+
+
+@app.route('/logbook/filter-bekas')
+def filter_bekas():
+
+    return render_template('pages/filter-bekas.html', title='Filter Bekas | K3L KTM', active_logbook='active')
+
+
+@app.route('/logbook/majun-bekas')
+def majun_bekas():
+
+    return render_template('pages/majun-bekas.html', title='Majun Bekas | K3L KTM', active_logbook='active')

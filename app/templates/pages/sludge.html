@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %} {% block title %}
+<title>{{ title }}</title>
+{% endblock %} {% block content %}
+<section id="limbah" class="limbah text-center position-relative">
+  <div class="container">
+    <div class="row">
+      <h1>Sludge</h1>
+      <p>Kode Limbah: A332-1</p>
+      <div class="col-8 offset-sm-2">
+        <div class="card">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Masuk <br /><span class="fw-normal">(Ton)</span></th>
+                <th scope="col">Keluar <br /><span class="fw-normal">(Ton)</span></th>
+                <th scope="col">Saldo <br /><span class="fw-normal">(Ton)</span></th>
+                <th scope="col">Manifest</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>20-12-2021</td>
+                <td>0.62</td>
+                <td>0</td>
+                <td>0.62</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>28-12-2021</td>
+                <td>0.93</td>
+                <td>0</td>
+                <td>1.55</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>27-01-2022</td>
+                <td>0</td>
+                <td>1.55</td>
+                <td>0</td>
+                <td><i class="bi-file-earmark-text" data-bs-toggle="modal" data-bs-target="#modal-manifest"></i></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>27-05-2022</td>
+                <td>2.33</td>
+                <td>0</td>
+                <td>2.33</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="in-out">
+          <div class="btn d-block mb-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Masuk"><i class="bi-arrow-left-circle"></i></div>
+          <div class="btn d-block mt-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Input Keluar"><i class="bi-arrow-right-circle"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Manifest-->
+  <div class="modal fade" id="modal-manifest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Manifest LB3</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="{{ url_for('static', filename='upload/001.png' ) }}" class="img-fluid" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Akhir Modal Manifest  -->
+</section>
+{% endblock %}

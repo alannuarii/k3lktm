@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %} {% block title %}
+<title>{{ title }}</title>
+{% endblock %} {% block content %}
+<section id="limbah" class="limbah text-center">
+  <div class="container">
+    <div class="row">
+      <h1>Filter Bekas</h1>
+      <p>Kode Limbah: A303-3</p>
+      <div class="col-8 offset-sm-2">
+        <div class="card">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Masuk <br /><span class="fw-normal">(Ton)</span></th>
+                <th scope="col">Keluar <br /><span class="fw-normal">(Ton)</span></th>
+                <th scope="col">Saldo <br /><span class="fw-normal">(Ton)</span></th>
+                <th scope="col">Manifest</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>30-12-2021</td>
+                <td>0.094</td>
+                <td>0</td>
+                <td>0.094</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>27-01-2022</td>
+                <td>0</td>
+                <td>0.094</td>
+                <td>0</td>
+                <td><i class="bi-file-earmark-text" data-bs-toggle="modal" data-bs-target="#modal-manifest"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Manifest-->
+  <div class="modal fade" id="modal-manifest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Manifest LB3</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="{{ url_for('static', filename='upload/003.png' ) }}" class="img-fluid" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Akhir Modal Manifest  -->
+</section>
+{% endblock %}
