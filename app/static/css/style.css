@@ -21,6 +21,11 @@ section {
   background-size: cover;
 }
 
+.offcanvas {
+  border-radius: 50px 0px 0px 50px;
+  border-right: 10px solid var(--color-btn2);
+}
+
 /* Sidebar */
 #sidebar {
   position: fixed;
@@ -189,6 +194,12 @@ section {
   margin-top: -10px;
   font-size: 10px;
 }
+.home .ip {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 /* LB3 Converter */
 .lb3 {
@@ -262,18 +273,57 @@ section {
   height: 100vh;
   width: 100%;
 }
+.ppa .blank-data {
+  width: 50%;
+}
+.ppa .blank-data p {
+  color: var(--color-text2);
+  font-size: 20px;
+  font-weight: 700;
+}
 .ppa .card {
   padding: 50px 50px;
   border-radius: 50px;
   border-bottom: 10px solid var(--color-btn2);
+  max-height: 550px;
+  overflow-y: auto;
 }
 .ppa h1 {
   color: var(--color-btn2);
   font-weight: 700;
 }
+.ppa h6 {
+  font-weight: 700;
+  font-size: 17px;
+  background-color: var(--color-btn2);
+  max-width: fit-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
 .ppa th,
 .ppa td {
   vertical-align: middle;
+}
+.ppa .btn-nav {
+  position: absolute;
+  top: 34%;
+  transform: translateY(-50%);
+  left: 78.5%;
+}
+.ppa .btn-nav .btn {
+  background-color: var(--color-btn);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: 10px 10px;
+  border: none;
+}
+.ppa .btn-nav .btn i {
+  font-size: 20px;
+}
+.ppa .btn-nav .btn:hover,
+.ppa .btn-nav i:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--color-text);
 }
 
 /* Logbook LB3 */
@@ -304,7 +354,7 @@ section {
 }
 .limbah .in-out {
   position: absolute;
-  top: 50%;
+  top: 39%;
   transform: translateY(-50%);
   left: 78.5%;
 }
@@ -315,6 +365,54 @@ section {
   padding: 10px 10px;
   border: none;
 }
+.limbah .in-out .btn i {
+  font-size: 20px;
+}
 .limbah .in-out .btn:hover {
+  background-color: var(--color-btn-hover);
+}
+.limbah .offcanvas h3 {
+  color: var(--color-btn2);
+  font-weight: 700;
+}
+.limbah .offcanvas label {
+  font-weight: 500;
+}
+.limbah .offcanvas .btn {
+  background-color: var(--color-btn);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: 10px 30px;
+  border: none;
+}
+.limbah .offcanvas .btn:hover {
+  background-color: var(--color-btn-hover);
+}
+
+/* Input PPA */
+.input-ppa {
+  height: 100vh;
+  width: 100%;
+}
+.input-ppa h1 {
+  color: var(--color-btn2);
+  font-weight: 700;
+}
+.input-ppa .card {
+  padding: 50px 50px;
+  border-radius: 50px;
+  border-bottom: 10px solid var(--color-btn2);
+}
+.input-ppa .card label {
+  font-weight: 500;
+}
+.input-ppa .card .btn {
+  background-color: var(--color-btn);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: 10px 30px;
+  border: none;
+}
+.input-ppa .card .btn:hover {
   background-color: var(--color-btn-hover);
 }

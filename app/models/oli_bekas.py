@@ -6,7 +6,6 @@ class OliBekas(db.Model):
     masuk = db.Column(db.Float, nullable=True)
     keluar = db.Column(db.Float, nullable=True)
     manifest = db.Column(db.String(100), nullable=True)
-    
 
     def __repr__(self):
         return '<{}. {}>'.format(self.id, self.tanggal)
