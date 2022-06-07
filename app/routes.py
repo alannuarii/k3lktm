@@ -30,13 +30,13 @@ def index():
 @app.route('/lb3-converter')
 def lb3():
     list_lb3 = LB3.query.all()
-    list_konstanta = []
+    list_nilai_satuan = []
     satuan = []
     for i in range(len(list_lb3)):
-        list_konstanta.append(list_lb3[i].konstanta)
-        satuan.append(list_lb3[i].satuan_awal)
+        list_nilai_satuan.append(list_lb3[i].nilai_satuan)
+        satuan.append(list_lb3[i].satuan)
 
-    return render_template('pages/lb3-converter.html', title='LB3 Converter | K3L KTM', active_lb3='active', list_lb3 = list_lb3, list_konstanta = list_konstanta, satuan = satuan)
+    return render_template('pages/lb3-converter.html', title='LB3 Converter | K3L KTM', active_lb3='active', list_lb3 = list_lb3, list_nilai_satuan = list_nilai_satuan, satuan = satuan)
 
 
 @app.route('/logbook')

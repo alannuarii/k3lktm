@@ -186,6 +186,10 @@ td {
   position: absolute;
   left: 75%;
   top: 25%;
+  transition: all 1s ease-in-out;
+}
+.home .safety-first:hover {
+  transform: scale(1.2) translate(-50px, -50px);
 }
 .home .bersih {
   position: absolute;

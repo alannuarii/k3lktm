@@ -12,9 +12,9 @@
               <thead>
                 <tr>
                   <th scope="col">Jenis Limbah B3</th>
-                  <th scope="col">Faktor Kali</th>
-                  <th scope="col">Nilai<br /><span class="fw-normal">(Input)</span></th>
+                  <th scope="col">Nilai</th>
                   <th scope="col">Satuan</th>
+                  <th scope="col">Jumlah<br /><span class="fw-normal">(Input)</span></th>
                   <th scope="col">Hasil</th>
                   <th scope="col">Satuan</th>
                 </tr>
@@ -30,8 +30,8 @@
                     </select>
                   </td>
                   <td><input type="number" class="form-control konstanta" value="" disabled /></td>
-                  <td><input type="number" class="form-control input" value="" /></td>
                   <td class="satuan"></td>
+                  <td><input type="number" class="form-control input" value="" /></td>
                   <td><input type="number" class="form-control hasil" value="" disabled /></td>
                   <td>Ton</td>
                 </tr>
@@ -46,7 +46,7 @@
     </div>
   </div>
   <script>
-    const listKonstanta = {{list_konstanta|safe}}
+    const listKonstanta = {{list_nilai_satuan|safe}}
     const listSatuan = {{satuan|safe}}
     const input = document.querySelector(".input");
     const hasil = document.querySelector(".hasil");
