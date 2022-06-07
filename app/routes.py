@@ -12,6 +12,7 @@ from app.models.debit_proses import DebitProses
 from app.models.ph_proses import PHProses
 from app.models.debit_domestik import DebitDomestik
 from app.models.ph_domestik import PHDomestik
+from app.models.guestbook import Guestbook
 import socket
 import os
 from werkzeug.utils import secure_filename
@@ -57,6 +58,45 @@ def debit_domestik():
     return render_template('pages/debit-domestik.html', title='Debit Limbah Domestik | K3L KTM', active_logbook='active', debits=debit)
 
 
+@app.route('/logbook/limbah-domestik/ph')
+def ph_domestik():
+    query = request.args.get('bulan')
+    ph = PHDomestik.query.filter_by(bulan=query).all()
+    if query:
+        query_datetime = datetime.strptime(query, '%Y-%m')
+        bulan = query_datetime.strftime('%B')
+        tahun = query_datetime.strftime('%Y')
+        result = Translator().translate(bulan, src='en', dest='id')
+        return render_template('pages/ph-domestik.html', title='ph Limbah Domestik | K3L KTM', active_logbook='active', phs=ph, bulan=result.text, tahun=tahun)
+    return render_template('pages/ph-domestik.html', title='ph Limbah Domestik | K3L KTM', active_logbook='active', phs=ph)
+
+
+@app.route('/logbook/limbah-proses/debit')
+def debit_proses():
+    query = request.args.get('bulan')
+    debit = DebitProses.query.filter_by(bulan=query).all()
+    if query:
+        query_datetime = datetime.strptime(query, '%Y-%m')
+        bulan = query_datetime.strftime('%B')
+        tahun = query_datetime.strftime('%Y')
+        result = Translator().translate(bulan, src='en', dest='id')
+        return render_template('pages/debit-proses.html', title='Debit Limbah Proses | K3L KTM', active_logbook='active', debits=debit, bulan=result.text, tahun=tahun)
+    return render_template('pages/debit-proses.html', title='Debit Limbah Proses | K3L KTM', active_logbook='active', debits=debit)
+
+
+@app.route('/logbook/limbah-proses/ph')
+def ph_proses():
+    query = request.args.get('bulan')
+    ph = PHProses.query.filter_by(bulan=query).all()
+    if query:
+        query_datetime = datetime.strptime(query, '%Y-%m')
+        bulan = query_datetime.strftime('%B')
+        tahun = query_datetime.strftime('%Y')
+        result = Translator().translate(bulan, src='en', dest='id')
+        return render_template('pages/ph-proses.html', title='ph Limbah Proses | K3L KTM', active_logbook='active', phs=ph, bulan=result.text, tahun=tahun)
+    return render_template('pages/ph-proses.html', title='ph Limbah Proses | K3L KTM', active_logbook='active', phs=ph)
+
+
 @app.route('/logbook/input-ppa', methods=['GET', 'POST'])
 def input_ppa():
     if request.method == 'POST':
@@ -67,7 +107,7 @@ def input_ppa():
             debitproses = DebitProses(tanggal=tanggal, debit=debit, bulan=bulan)
             db.session.add(debitproses)
             db.session.commit()
-            return redirect(url_for('input_ppa'))
+            return redirect(url_for('debit_proses'))
         elif request.form['ppa'] == 'phproses':
             tanggal = request.form['tanggal']
             ph = request.form['ph']
@@ -75,7 +115,7 @@ def input_ppa():
             phproses = PHProses(tanggal=tanggal, ph=ph, bulan=bulan)
             db.session.add(phproses)
             db.session.commit()
-            return redirect(url_for('input_ppa'))
+            return redirect(url_for('ph_proses'))
         elif request.form['ppa'] == 'debitdomestik':
             tanggal = request.form['tanggal']
             debit = request.form['debit']
@@ -83,7 +123,7 @@ def input_ppa():
             debitdomestik = DebitDomestik(tanggal=tanggal, debit=debit, bulan=bulan)
             db.session.add(debitdomestik)
             db.session.commit()
-            return redirect(url_for('input_ppa'))
+            return redirect(url_for('debit_domestik'))
         elif request.form['ppa'] == 'phdomestik':
             tanggal = request.form['tanggal']
             ph = request.form['ph']
@@ -91,7 +131,7 @@ def input_ppa():
             phdomestik = PHDomestik(tanggal=tanggal, ph=ph, bulan=bulan)
             db.session.add(phdomestik)
             db.session.commit()
-            return redirect(url_for('input_ppa'))
+            return redirect(url_for('ph_domestik'))
     return render_template('pages/input-ppa.html', title='Input Data Harian | K3L KTM', active_logbook='active')
 
 
@@ -193,3 +233,23 @@ def majun_bekas():
             db.session.commit()
             return redirect(url_for('majun_bekas'))
     return render_template('pages/majun-bekas.html', title='Majun Bekas | K3L KTM', active_logbook='active', majun_bekas=list_majun_bekas)
+
+
+@app.route('/guestbook/input', methods=['GET','POST'])
+def input_tamu():
+    if request.method == 'POST':
+        nama = request.form['nama']
+        instansi = request.form['instansi']
+        alamat = request.form['alamat']
+        telepon = request.form['telepon']
+        tujuan = request.form['tujuan']
+        guestbook = Guestbook(nama=nama, instansi=instansi, alamat=alamat, telepon=telepon, tujuan=tujuan)
+        db.session.add(guestbook)
+        db.session.commit()
+    return render_template('pages/input-tamu.html',title='Guest Book | K3L KTM', active_guestbook='active')
+
+
+@app.route('/guestbook')
+def guestbook():
+    list_guestbook = Guestbook.query.all()
+    return render_template('pages/guestbook.html',title='Guest Book | K3L KTM', active_guestbook='active', guests=list_guestbook)

@@ -11,8 +11,8 @@
           <h3>Limbah Proses</h3>
           <p>Data harian pengukuran debit dan ph limbah proses di sisi outlet</p>
           <div>
-            <a href="" class="btn">Debit</a>
-            <a href="" class="btn">ph</a>
+            <a href="{{ url_for('debit_proses' ) }}" class="btn">Debit</a>
+            <a href="{{ url_for('ph_proses' ) }}" class="btn">ph</a>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
           <p>Data harian pengukuran debit dan ph limbah domestik di sisi outlet</p>
           <div>
             <a href="{{ url_for('debit_domestik' ) }}" class="btn">Debit</a>
-            <a href="" class="btn">ph</a>
+            <a href="{{ url_for('ph_domestik' ) }}" class="btn">ph</a>
           </div>
         </div>
       </div>

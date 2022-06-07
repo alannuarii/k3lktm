@@ -1,0 +1,40 @@
+{% extends 'layouts/base.html' %} {% block title %}
+<title>{{ title }}</title>
+{% endblock %} {% block content %}
+<section id="input-tamu" class="input-tamu">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">GUEST BOOK</h1>
+      <div class="col-lg-10 offset-lg-1">
+        <div class="card">
+          <form action="" method="post">
+            <div class="mb-3">
+              <label class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" placeholder="Masukkan nama lengkap" name="nama" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Asal Perusahaan / Instansi</label>
+              <input type="text" class="form-control" placeholder="Masukkan asal perusahaan / instansi" name="instansi" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Alamat</label>
+              <input type="text" class="form-control" placeholder="Masukkan alamat" name="alamat" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nomor Telepon</label>
+              <input type="text" class="form-control" placeholder="Masukkan nomor telepon" name="telepon" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tujuan Berkunjung</label>
+              <input type="text" class="form-control" placeholder="Masukkan tujuan berkunjung" name="tujuan" />
+            </div>
+            <div class="text-center">
+              <input type="submit" class="btn" value="Submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
