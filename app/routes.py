@@ -253,3 +253,9 @@ def input_tamu():
 def guestbook():
     list_guestbook = Guestbook.query.all()
     return render_template('pages/guestbook.html',title='Guest Book | K3L KTM', active_guestbook='active', guests=list_guestbook)
+
+
+@app.route('/working-permit')
+def working_permit():
+    
+    return render_template('pages/working-permit.html',title='Working Permit | K3L KTM', active_wp='active', )

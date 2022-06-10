@@ -198,6 +198,11 @@ td {
 }
 .home .bersih h2 {
   font-weight: 700;
+  transition: all 0.5s ease-in-out;
+}
+.home .bersih h2:hover {
+  color: var(--color-btn2);
+  cursor: pointer;
 }
 .home .bersih p {
   margin-top: -10px;
@@ -478,4 +483,15 @@ td {
 .guestbook .btn-nav i:hover {
   background-color: var(--color-btn-hover);
   color: var(--color-text);
+}
+
+/* Working Permit */
+.wp {
+  height: 100vh;
+  width: 100%;
+}
+.wp #my_camera {
+  width: 320px;
+  height: 240px;
+  border: 1px solid black;
 }

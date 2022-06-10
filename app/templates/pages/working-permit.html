@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %} {% block title %}
+<title>{{ title }}</title>
+{% endblock %} {% block content %}
+<section id="wp" class="wp">
+  <div class="container">
+    <div class="row">
+      <div id="my_camera"></div>
+      <input type="button" value="Take Snapshot" onclick="take_snapshot()" />
+
+      <div id="result"></div>
+    </div>
+  </div>
+  <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/webcamjs/webcam.min.js' ) }}"></script> -->
+  <script language="JavaScript">
+    // Webcam.set({
+    //   width: 520,
+    //   height: 240,
+    //   image_format: "jpeg",
+    //   jpeg_quality: 90,
+    // });
+    // Webcam.attach("#my_camera");
+
+    // <!-- Code to handle taking the snapshot and displaying it locally -->
+    // function take_snapshot() {
+    //   // Webcam.reset();
+
+    //   Webcam.snap(function (data_uri) {
+    //     document.getElementById("result").innerHTML = '<img src="' + data_uri + '"/>';
+    //   });
+    // }
+  </script>
+</section>
+{% endblock %}
