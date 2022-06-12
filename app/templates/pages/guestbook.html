@@ -17,6 +17,7 @@
                 <th scope="col">Alamat</th>
                 <th scope="col">No. Telepon</th>
                 <th scope="col">Tujuan Berkunjung</th>
+                <th scope="col">Foto</th>
               </tr>
             </thead>
             <tbody>
@@ -29,7 +30,23 @@
                 <td>{{guest.alamat}}</td>
                 <td>{{guest.telepon}}</td>
                 <td>{{guest.tujuan}}</td>
+                <td><i class="bi-file-person" data-bs-toggle="modal" data-bs-target="#modal{{guest.id}}"></i></td>
               </tr>
+              <!-- Modal Foto-->
+              <div class="modal fade" id="modal{{guest.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{guest.tanggal}} {{guest.nama}}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-center">
+                      <img src="/static/img/tamu/{{guest.foto}}" class="" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Akhir Modal Foto  -->
               {% endfor %}
             </tbody>
           </table>

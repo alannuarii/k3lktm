@@ -13,6 +13,7 @@ class Config(object):
     SQLALCHEMY_RECORD_QUERIES = True
 
     UPLOAD_FOLDER = 'app/static/upload'
+    UPLOAD_FOLDER_TAMU = 'app/static/img/tamu'
     MAX_CONTENT_LENGTH = 2 * 1024 * 1024
 
   

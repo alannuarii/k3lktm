@@ -421,7 +421,7 @@ td {
 
 /* Input Tamu */
 .input-tamu {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
 }
 .input-tamu h1 {
@@ -436,15 +436,52 @@ td {
 .input-tamu .card label {
   font-weight: 500;
 }
-.input-tamu .card .btn {
+.input-tamu .card .foto-tamu {
+  /* border: 5px solid var(--color-text2); */
+  border-radius: 20px;
+  padding: 30px;
+}
+.input-tamu #my_camera {
+  width: 320px;
+  height: 240px;
+  border-radius: 50px;
+}
+.input-tamu .card #result img {
+  width: 320px;
+  height: 240px;
+}
+.input-tamu .capture i {
+  font-size: 20px;
+}
+.input-tamu .card .capture {
   background-color: var(--color-btn);
   color: var(--color-text);
   border-radius: 50px;
   padding: 10px 30px;
   border: none;
 }
-.input-tamu .card .btn:hover {
+.input-tamu .card .capture:hover {
   background-color: var(--color-btn-hover);
+}
+.input-tamu .card .submit {
+  background-color: var(--color-btn);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: 10px 30px;
+  border: none;
+}
+.input-tamu .card .submit:hover {
+  background-color: var(--color-btn-hover);
+}
+.input-tamu .card .reset {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: 50px;
+  padding: 10px 30px;
+  border: none;
+}
+.input-tamu .card .reset:hover {
+  background-color: var(--color-text2);
 }
 
 /* Guestbook */
@@ -460,6 +497,8 @@ td {
   padding: 30px 50px;
   border-radius: 50px;
   border-bottom: 10px solid var(--color-btn2);
+  max-height: 550px;
+  overflow-y: auto;
 }
 .guestbook .card label {
   font-weight: 500;
@@ -484,14 +523,12 @@ td {
   background-color: var(--color-btn-hover);
   color: var(--color-text);
 }
+.guestbook .card i {
+  cursor: pointer;
+}
 
 /* Working Permit */
 .wp {
   height: 100vh;
   width: 100%;
-}
-.wp #my_camera {
-  width: 320px;
-  height: 240px;
-  border: 1px solid black;
 }

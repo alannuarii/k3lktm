@@ -10,6 +10,7 @@ class Guestbook(db.Model):
     alamat = db.Column(db.String(150), nullable=False)
     telepon = db.Column(db.String(20), nullable=False)
     tujuan = db.Column(db.String(250), nullable=False)
+    foto = db.Column(db.String(255), nullable=True)
 
     def __repr__(self):
         return '<{}. {} ({})>'.format(self.id, self.nama, self.tanggal)

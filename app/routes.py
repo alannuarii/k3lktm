@@ -15,9 +15,17 @@ from app.models.ph_domestik import PHDomestik
 from app.models.guestbook import Guestbook
 import socket
 import os
+import base64
+from PIL import Image
+from io import BytesIO
 from werkzeug.utils import secure_filename
 from googletrans import Translator
+import random
+import string
 
+# Karakter Acak 
+letters = string.ascii_letters
+acak =  'Tamu'.join(random.choice(letters) for i in range(10))   
 
 
 @app.route('/')
@@ -243,9 +251,19 @@ def input_tamu():
         alamat = request.form['alamat']
         telepon = request.form['telepon']
         tujuan = request.form['tujuan']
-        guestbook = Guestbook(nama=nama, instansi=instansi, alamat=alamat, telepon=telepon, tujuan=tujuan)
+        foto = request.form['foto']
+        new_foto = foto.replace('data:image/jpeg;base64,', '')
+        bytes_decoded = base64.b64decode(new_foto)
+        img = Image.open(BytesIO(bytes_decoded))
+        out_jpg = img.convert("RGB")
+        letters = string.ascii_letters
+        acak =  ''.join(random.choice(letters) for i in range(10))  
+        filename = 'Tamu-'+str(acak)+'.jpg'
+        out_jpg.save(os.path.join(app.config['UPLOAD_FOLDER_TAMU'], filename))
+        guestbook = Guestbook(nama=nama, instansi=instansi, alamat=alamat, telepon=telepon, tujuan=tujuan, foto=filename)
         db.session.add(guestbook)
         db.session.commit()
+        return redirect(url_for('guestbook'))
     return render_template('pages/input-tamu.html',title='Guest Book | K3L KTM', active_guestbook='active')
 
 
@@ -254,8 +272,3 @@ def guestbook():
     list_guestbook = Guestbook.query.all()
     return render_template('pages/guestbook.html',title='Guest Book | K3L KTM', active_guestbook='active', guests=list_guestbook)
 
-
-@app.route('/working-permit')
-def working_permit():
-    
-    return render_template('pages/working-permit.html',title='Working Permit | K3L KTM', active_wp='active', )
