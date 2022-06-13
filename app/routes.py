@@ -1,5 +1,4 @@
 from datetime import datetime
-from turtle import title
 from app import app
 from app import db
 from flask import render_template, request, redirect, url_for
@@ -21,11 +20,7 @@ from io import BytesIO
 from werkzeug.utils import secure_filename
 from googletrans import Translator
 import random
-import string
-
-# Karakter Acak 
-letters = string.ascii_letters
-acak =  'Tamu'.join(random.choice(letters) for i in range(10))   
+import string  
 
 
 @app.route('/')
